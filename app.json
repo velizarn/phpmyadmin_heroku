@@ -1,6 +1,35 @@
 {
   "name": "phpMyAdmin on Heroku",
   "description": "A simple configuration wrapper to run phpMyAdmin on Heroku",
-  "repository": "https://github.com/smsaladi/phpmyadmin_heroku",
-  "addons": []
+  "repository": "https://github.com/velizarn/phpmyadmin_heroku",
+  "logo": "https://raw.githubusercontent.com/velizarn/phpmyadmin_heroku/master/phpmy-heroku.png",
+  "keywords": [
+    "phpmyadmin",
+    "heroku"
+  ],
+  "addons": [],
+  "buildpacks": [
+    { "url": "heroku/php" },
+    { "url": "velizarn/heroku-buildpack-nano" }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free",
+      "command": "web: vendor/bin/heroku-php-apache2 phpmyadmin/"
+    }
+  },
+  "env": {
+    "PHPMYADMIN_BLOWFISH_SECRET": {
+      "description": "This is needed for cookie based authentication to encrypt password in cookie",
+      "value": "aEHyVwuwOnGq1TL0TWRD5CbDtPf03FZ9",
+      "required": true
+    },
+    "MYSQL_HOST": {
+      "description": "MySQL host",
+      "value": "",
+      "required": false
+    }
+  }
+  
 }
