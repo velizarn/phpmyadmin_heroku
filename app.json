@@ -22,7 +22,7 @@
   "env": {
     "PHPMYADMIN_BLOWFISH_SECRET": {
       "description": "This is needed for cookie based authentication to encrypt password in cookie",
-      "value": "aEHyVwuwOnGq1TL0TWRD5CbDtPf03FZ9",
+      "generator": "secret",
       "required": true
     },
     "MYSQL_HOST": {
