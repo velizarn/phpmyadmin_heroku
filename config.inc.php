@@ -32,6 +32,13 @@ $cfg['Servers'][$i]['host'] = $_ENV['MYSQL_HOST'];
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
+/* https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_order */
+
+if (!empty($_ENV['WHITELIST_IP'])) {
+  $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+  $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow % from '.$_ENV['WHITELIST_IP']);
+}
+
 /**
  * phpMyAdmin configuration storage settings.
  */

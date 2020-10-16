@@ -29,7 +29,11 @@
       "description": "MySQL host",
       "value": "",
       "required": false
+    },
+    "WHITELIST_IP": {
+      "description": "Allowed IP address/s",
+      "value": "",
+      "required": false
     }
   }
-  
 }
