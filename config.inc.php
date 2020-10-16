@@ -37,8 +37,7 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 
 if (!empty($_ENV['WHITELIST_IP'])) {
   $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
-  $cfg['Servers'][$i]['AllowDeny']['rules'] = array('deny % from all');
-  $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow % from '.$_ENV['WHITELIST_IP']);
+  $cfg['Servers'][$i]['AllowDeny']['rules'] = array('deny % from all', 'allow % from '.$_ENV['WHITELIST_IP']);
 }
 
 /**
