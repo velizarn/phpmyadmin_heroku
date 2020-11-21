@@ -12,6 +12,7 @@
     { "url": "heroku/php" },
     { "url": "velizarn/heroku-buildpack-nano" }
   ],
+  "stack": "heroku-20",
   "formation": {
     "web": {
       "quantity": 1,
