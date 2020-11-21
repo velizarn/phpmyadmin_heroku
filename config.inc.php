@@ -36,10 +36,13 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 /* https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_order */
 
 if (!empty($_ENV['WHITELIST_IP']) && !empty($_ENV['MYSQL_USER'])) {
-  $order = array('allow,deny', 'deny,allow', 'explicit');
-  $allowdeny = (in_array($_ENV['ALLOWDENY_ORDER'], $order, true)) ? $_ENV['ALLOWDENY_ORDER'] : 'allow,deny';
-  $cfg['Servers'][$i]['AllowDeny']['order'] = $allowdeny;
-  $cfg['Servers'][$i]['AllowDeny']['rules'] = array("allow {$_ENV['MYSQL_USER']} from {$_SERVER['SERVER_ADDR']}");
+  $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
+  $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
+    'deny % from all',
+    'allow % from 127.0.0.1',
+    'allow % from ::1',
+    'allow % from '.$_SERVER['WHITELIST_IP']
+  );
 }
 
 /**
