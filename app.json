@@ -30,11 +30,6 @@
       "value": "",
       "required": false
     },
-    "ALLOWDENY_ORDER": {
-      "description": "AllowDeny Order - possible values: allow,deny / deny,allow / explicit",
-      "value": "",
-      "required": false
-    },
     "MYSQL_USER": {
       "description": "Allowed username",
       "value": "%",

@@ -41,9 +41,11 @@ if (!empty($_ENV['WHITELIST_IP']) && !empty($_ENV['MYSQL_USER'])) {
     'deny % from all',
     'allow % from 127.0.0.1',
     'allow % from ::1',
-    'allow % from '.$_SERVER['WHITELIST_IP']
+    'allow % from '.$_ENV['WHITELIST_IP']
   );
 }
+
+$cfg['Servers'][$i]['DisableIS'] = true;
 
 /**
  * phpMyAdmin configuration storage settings.
