@@ -10,8 +10,16 @@
  * @package PhpMyAdmin
  */
 
-if (!empty($_ENV['WHITELIST_IP']) && $_SERVER['REMOTE_ADDR'] != $_ENV['WHITELIST_IP']) {
-  header('HTTP/1.1 401 Unauthorized');
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+  $remoteIp = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+  $remoteIp = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+  $remoteIp = $_SERVER['REMOTE_ADDR'];
+}
+
+if (!empty($_ENV['WHITELIST_IP']) && $_ENV['WHITELIST_IP'] != $remoteIp) {
+  header("HTTP/1.1 404 Not Found");
   exit;
 }
 

@@ -33,7 +33,7 @@
     },
     "WHITELIST_IP": {
       "description": "Allowed IP address/s",
-      "value": "all",
+      "value": "",
       "required": false
     }
   }
