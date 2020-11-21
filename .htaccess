@@ -1,5 +1,7 @@
 PassEnv WHITELIST_IP
 
-Order Deny,Allow
-Deny from all
-Allow from %{WHITELIST_IP}
+# Order Deny,Allow
+# Deny from all
+# Allow from %{WHITELIST_IP}
+
+Header set X-MyHeader "%{WHITELIST_IP}"
