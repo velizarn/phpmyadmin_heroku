@@ -21,9 +21,6 @@ $cfg['blowfish_secret'] = $_ENV['PHPMYADMIN_BLOWFISH_SECRET']; /* YOU MUST FILL 
  */
 $i = 0;
 
-var_dump($_ENV['WHITELIST_IP']);
-die();
-
 /**
  * First server
  */
@@ -38,9 +35,9 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 
 /* https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_order */
 
-if (!empty($_ENV['WHITELIST_IP'])) {
+if (!empty($_ENV['WHITELIST_IP']) && !empty($_ENV['MYSQL_USER'])) {
   $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-  $cfg['Servers'][$i]['AllowDeny']['rules'] = array("allow % from {$_ENV['WHITELIST_IP']}");
+  $cfg['Servers'][$i]['AllowDeny']['rules'] = array("allow {$_ENV['MYSQL_USER']} from {$_ENV['WHITELIST_IP']}");
 }
 
 /**
