@@ -10,6 +10,11 @@
  * @package PhpMyAdmin
  */
 
+if (!empty($_ENV['WHITELIST_IP']) && $_SERVER['REMOTE_ADDR'] != $_ENV['WHITELIST_IP']) {
+  header('HTTP/1.1 401 Unauthorized');
+  exit;
+}
+
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
@@ -32,15 +37,6 @@ $cfg['Servers'][$i]['host'] = $_ENV['MYSQL_HOST'];
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Servers'][$i]['AllowRoot'] = false;
-
-/* https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_order */
-
-if (!empty($_ENV['WHITELIST_IP']) && !empty($_ENV['MYSQL_USER'])) {
-  $cfg['Servers'][$i]['AllowDeny']['order'] = 'explicit';
-  $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
-    "allow {$_ENV['MYSQL_USER']} from {$_ENV['WHITELIST_IP']}"
-  );
-}
 
 $cfg['Servers'][$i]['DisableIS'] = true;
 

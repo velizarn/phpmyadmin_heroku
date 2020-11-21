@@ -31,11 +31,6 @@
       "value": "",
       "required": false
     },
-    "MYSQL_USER": {
-      "description": "Allowed username",
-      "value": "%",
-      "required": false
-    },
     "WHITELIST_IP": {
       "description": "Allowed IP address/s",
       "value": "all",
