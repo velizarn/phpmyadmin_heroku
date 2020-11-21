@@ -10,9 +10,6 @@
  * @package PhpMyAdmin
  */
 
- phpinfo();
- die();
-
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
@@ -39,12 +36,9 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 /* https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_AllowDeny_order */
 
 if (!empty($_ENV['WHITELIST_IP']) && !empty($_ENV['MYSQL_USER'])) {
-  $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
+  $cfg['Servers'][$i]['AllowDeny']['order'] = 'explicit';
   $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
-    'deny % from all',
-    'allow % from 127.0.0.1',
-    'allow % from ::1',
-    'allow % from '.$_ENV['WHITELIST_IP']
+    "allow {$_ENV['MYSQL_USER']} from {$_ENV['WHITELIST_IP']}"
   );
 }
 
