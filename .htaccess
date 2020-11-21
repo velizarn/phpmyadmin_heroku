@@ -4,4 +4,4 @@ PassEnv WHITELIST_IP
 # Deny from all
 # Allow from %{WHITELIST_IP}
 
-Header set X-MyHeader "%{WHITELIST_IP}"
+Header set X-MyHeader "%{ENV:WHITELIST_IP}"
