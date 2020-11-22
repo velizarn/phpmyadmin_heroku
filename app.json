@@ -21,6 +21,11 @@
     }
   },
   "env": {
+    "ERROR_PAGE_URL": {
+      "description": "",
+      "value": "//www.herokucdn.com/error-pages/no-such-app.html",
+      "required": false
+    },
     "PHPMYADMIN_BLOWFISH_SECRET": {
       "description": "This is needed for cookie based authentication to encrypt password in cookie",
       "generator": "secret",
