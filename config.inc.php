@@ -20,7 +20,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 
 if (!empty($_ENV['WHITELIST_IP']) && $_ENV['WHITELIST_IP'] != $remoteIp) {
   header("HTTP/1.1 404 Not Found");
-  echo("Not found");
+  include("app_error.php");
   exit;
 }
 
