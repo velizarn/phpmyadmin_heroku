@@ -31,7 +31,10 @@ if (!empty($_ENV['WHITELIST_IP']) && $_ENV['WHITELIST_IP'] != $remoteIp) {
  */
 $cfg['blowfish_secret'] = $_ENV['PHPMYADMIN_BLOWFISH_SECRET']; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
-$cfg['AllowArbitraryServer'] = true;
+/**
+ * If enable this, allows you to log in to arbitrary servers using cookie authentication.
+*/
+$cfg['AllowArbitraryServer'] = (!empty($_ENV['ALLOWARBITRARYSERVER']) && $_ENV['ALLOWARBITRARYSERVER'] == 'true');
 
 /**
  * Servers configuration
