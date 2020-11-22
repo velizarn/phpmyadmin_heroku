@@ -21,23 +21,18 @@
     }
   },
   "env": {
-    "ERROR_PAGE_URL": {
-      "description": "",
-      "value": "//www.herokucdn.com/error-pages/no-such-app.html",
-      "required": false
-    },
     "PHPMYADMIN_BLOWFISH_SECRET": {
       "description": "This is needed for cookie based authentication to encrypt password in cookie",
       "generator": "secret",
       "required": true
     },
     "MYSQL_HOST": {
-      "description": "MySQL host",
+      "description": "The hostname or IP address of your MySQL-server, optional",
       "value": "",
       "required": false
     },
     "WHITELIST_IP": {
-      "description": "Allowed IP address/s",
+      "description": "Allowed IP address, optional",
       "value": "",
       "required": false
     }
