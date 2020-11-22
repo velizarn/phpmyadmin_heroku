@@ -10,6 +10,7 @@
  * @package PhpMyAdmin
  */
 
+ // @TODO Tech debt improvements...
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
   $remoteIp = $_SERVER['HTTP_CLIENT_IP'];
 } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
