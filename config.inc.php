@@ -20,7 +20,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 
 if (!empty($_ENV['WHITELIST_IP']) && $_ENV['WHITELIST_IP'] != $remoteIp) {
   header("HTTP/1.1 404 Not Found");
-  header("X-App-Addr: {$ip}");
+  header("X-App-Addr: {$remoteIp}");
   include("app_error.php");
   exit;
 }
@@ -43,7 +43,9 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = $_ENV['MYSQL_HOST'];
+if (!empty($_ENV['MYSQL_HOST'])) {
+  $cfg['Servers'][$i]['host'] = $_ENV['MYSQL_HOST'];
+}
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Servers'][$i]['AllowRoot'] = false;
