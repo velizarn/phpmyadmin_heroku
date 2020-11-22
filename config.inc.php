@@ -31,6 +31,8 @@ if (!empty($_ENV['WHITELIST_IP']) && $_ENV['WHITELIST_IP'] != $remoteIp) {
  */
 $cfg['blowfish_secret'] = $_ENV['PHPMYADMIN_BLOWFISH_SECRET']; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
+$cfg['AllowArbitraryServer'] = true;
+
 /**
  * Servers configuration
  */
@@ -43,9 +45,7 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
-if (!empty($_ENV['MYSQL_HOST'])) {
-  $cfg['Servers'][$i]['host'] = $_ENV['MYSQL_HOST'];
-}
+$cfg['Servers'][$i]['host'] = $_ENV['MYSQL_HOST'];
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Servers'][$i]['AllowRoot'] = false;
