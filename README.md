@@ -34,7 +34,7 @@ configured to bypass login and give complete access. Please be friendly.
   </dd>
 </dl>
 
-### Create Deploy yo Heroku button
+### Create Deploy to Heroku button
 
 For example, you might have the following button URL:
 ```html
