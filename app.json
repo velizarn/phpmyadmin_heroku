@@ -12,7 +12,7 @@
     { "url": "heroku/php" },
     { "url": "https://github.com/velizarn/heroku-buildpack-apt" }
   ],
-  "stack": "heroku-20",
+  "stack": "heroku-22",
   "formation": {
     "web": {
       "quantity": 1,
