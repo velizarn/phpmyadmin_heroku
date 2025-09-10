@@ -1,7 +1,7 @@
 phpmyadmin_heroku
 =================
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/velizarn/phpmyadmin_heroku)
 
 This is my kludgy way of running phpMyAdmin on Heroku. All you need to do is
 customize `config.inc.php` as you would normally to get things running.
